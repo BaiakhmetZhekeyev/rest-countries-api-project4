@@ -1,17 +1,20 @@
-import React from 'react';
-import {SearchOutlined} from "@ant-design/icons/SearchOutlined";
+import React from "react";
 import classes from "./Myinput.module.css";
-
-const MyInput = () => {
-    return (
-        <input
-            src={<SearchOutlined/>}
-            className={classes.searchCountryInput}
-            type="text"
-            placeholder={"Search for a Country..."}
-            // onChange={(e) => setCountrySearch(e.target.value)}
-        />
-    );
+import { SearchOutlined } from "@ant-design/icons";
+const MyInput = ({ setSearchInput }) => {
+  return (
+    <div className={classes.searchBlock}>
+      <input
+        className={classes.searchCountryInput}
+        type="text"
+        placeholder={"Search for a Country..."}
+        onChange={(e) => setSearchInput(e.target.value)}
+      />
+      <div className={classes.searchIcon}>
+        <SearchOutlined />
+      </div>
+    </div>
+  );
 };
 
 export default MyInput;

@@ -1,3 +1,9 @@
+.searchBlock {
+    display: flex;
+    align-items: center;
+    width: 150px;
+}
+
 .searchCountryInput {
     width: 400px;
     padding: 5px 20px;
@@ -9,6 +15,17 @@
     font-size: 15px;
 }
 
-.searchCountryInput:focus {
+.searchCountryInput:hover {
     border: 1.5px solid #57A2D8;
 }
+
+.searchCountryInput:focus {
+    border: none;
+    box-shadow: 0px 0px 3px 0.5px #57A2D8;
+}
+
+.searchIcon {
+    position: relative;
+    right: 20px;
+}
+
