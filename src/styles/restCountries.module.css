@@ -35,19 +35,6 @@
     margin: 40px 0;
 }
 
-.searchCountryInput {
-    height: 50px;
-    width: 400px;
-    padding: 15px 30px;
-    border-radius: 8px;
-    background: white;
-    box-shadow: 0px 0px 10px 0px gray;
-    outline: none;
-    border: none;
-    font-family: Arial;
-    font-size: 15px;
-}
-
 .contentContainer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;

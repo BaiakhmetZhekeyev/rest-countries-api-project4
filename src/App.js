@@ -1,5 +1,5 @@
 import './App.css';
-import {RestCountries} from "./сomponents/restCountries";
+import RestCountries from "./сomponents/RestCountries";
 
 function App() {
   return (

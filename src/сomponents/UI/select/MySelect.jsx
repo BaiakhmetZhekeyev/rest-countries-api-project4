@@ -1,23 +1,17 @@
 import React from 'react';
+import {Select} from "antd";
 
-const MySelect = ({options, defaulValue}) => {
+const MySelect = ({options, defaulValue, setOption}) => {
+
     return (
-            <select name="regions" id="regions">
-                <option disabled value="">{defaulValue}</option>
-                {console.log(options)}
-                {
-                options.map(opt => {
-                    <option key={opt} value={opt}>{opt}</option>
-                }
-                )}
-
-                {/*<option value="Africa">Choose region</option>*/}
-                {/*<option value="Africa">Africa</option>*/}
-                {/*<option value="America">America</option>*/}
-                {/*<option value="Asia">Asia</option>*/}
-                {/*<option value="Europe">Europe</option>*/}
-                {/*<option value="Ocenia">Ocenia</option>*/}
-            </select>
+            <Select
+                onChange={setOption}
+                showArrow={false}
+                style={{width: '150px'}}
+                placeholder={defaulValue}
+                options={options}
+                size={"large"}
+            />
     );
 };
 

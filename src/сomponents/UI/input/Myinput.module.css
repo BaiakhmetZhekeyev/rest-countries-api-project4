@@ -1,0 +1,14 @@
+.searchCountryInput {
+    width: 400px;
+    padding: 5px 20px;
+    border-radius: 8px;
+    background: white;
+    outline: none;
+    border: 1px solid #D5D6D9;
+    font-family: Arial;
+    font-size: 15px;
+}
+
+.searchCountryInput:focus {
+    border: 1.5px solid #57A2D8;
+}
