@@ -1,0 +1,32 @@
+.infoBody {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 500px;
+    margin-top: 30px;
+}
+
+.infoBody img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.infoContainer {
+
+}
+
+.informationBlock {
+
+}
+
+.countryName{
+
+}
+
+.aboutCountry{
+
+}
+
+.borderCountries {
+
+}

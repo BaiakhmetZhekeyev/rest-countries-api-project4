@@ -1,0 +1,20 @@
+.myButton {
+    padding: 5px 15px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px 1px gray;
+    border: none;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.myButton:hover {
+    box-shadow: 0px 0px 6px 1px gray;
+    cursor: pointer;
+}
+
+.myButton img {
+    width: 18px;
+}
+

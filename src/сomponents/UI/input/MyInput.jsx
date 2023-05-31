@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./Myinput.module.css";
+import classes from "./MyInput.module.css";
 import { SearchOutlined } from "@ant-design/icons";
 const MyInput = ({ setSearchInput }) => {
   return (

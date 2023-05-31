@@ -5,6 +5,9 @@ import axios from "axios";
 import MySelect from "./UI/select/MySelect";
 import MyInput from "./UI/input/MyInput";
 import CountriesBlock from "./CountriesBlock";
+import CountryInfo from "./CountryInfo";
+import MyButton from "./UI/button/MyButton";
+import darkMode from "../img/dark_mode_icon.svg";
 
 const RestCountries = () => {
   const [region, setRegion] = React.useState("");
@@ -25,10 +28,7 @@ const RestCountries = () => {
     <div className={style.rootCountries}>
       <div className={style.countriesHeaderWrapper}>
         <h1>Where in the world?</h1>
-        <button className={style.darkMode}>
-          <img alt={"darkMode"} src={darkModeIcon} style={{ width: "20px" }} />
-          <label htmlFor="">Dark Mode</label>
-        </button>
+        <MyButton value={"Dark Mode"} icon={darkMode} />
       </div>
       <div className={style.bodyWrapper}>
         <div className={style.filterWrapper}>
@@ -45,11 +45,12 @@ const RestCountries = () => {
             ]}
           />
         </div>
-        <CountriesBlock
-          countries={countries}
-          countrySearch={countrySearch}
-          region={region}
-        />
+        <CountryInfo country={countries[0]} />
+        {/*<CountriesBlock*/}
+        {/*  countries={countries}*/}
+        {/*  countrySearch={countrySearch}*/}
+        {/*  region={region}*/}
+        {/*/>*/}
       </div>
     </div>
   );
