@@ -1,5 +1,6 @@
 import React from "react";
 import style from "../styles/restCountries.module.css";
+import { Link } from "react-router-dom";
 
 const CountriesBlock = ({ countries, countrySearch, region }) => {
   return (
@@ -12,7 +13,11 @@ const CountriesBlock = ({ countries, countrySearch, region }) => {
             .includes(countrySearch.toLowerCase())
         )
         .map((obj, index) => (
-          <div className={style.countryBlock} key={index}>
+          <Link
+            to={`/${obj.name.common}`}
+            className={style.countryBlock}
+            key={index}
+          >
             <img src={obj.flags.svg} alt={obj.flag} />
             <div className={style.countryInfo}>
               <h5>{obj.name.common}</h5>
@@ -20,7 +25,7 @@ const CountriesBlock = ({ countries, countrySearch, region }) => {
               <p>Region: {obj.region}</p>
               <p>Capital: {obj.capital}</p>
             </div>
-          </div>
+          </Link>
         ))}
     </div>
   );

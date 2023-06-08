@@ -1,13 +1,13 @@
 import React from "react";
 import style from "../styles/restCountries.module.css";
-import darkModeIcon from "../img/dark_mode_icon.svg";
 import axios from "axios";
 import MySelect from "./UI/select/MySelect";
 import MyInput from "./UI/input/MyInput";
 import CountriesBlock from "./CountriesBlock";
-import CountryInfo from "./CountryInfo";
 import MyButton from "./UI/button/MyButton";
 import darkMode from "../img/dark_mode_icon.svg";
+import { Link, Routes, Route } from "react-router-dom";
+import CountryInfo from "./CountryInfo";
 
 const RestCountries = () => {
   const [region, setRegion] = React.useState("");
@@ -27,7 +27,7 @@ const RestCountries = () => {
   return (
     <div className={style.rootCountries}>
       <div className={style.countriesHeaderWrapper}>
-        <h1>Where in the world?</h1>
+        <Link to={"/"}>Where in the world?</Link>
         <MyButton value={"Dark Mode"} icon={darkMode} />
       </div>
       <div className={style.bodyWrapper}>
@@ -45,12 +45,19 @@ const RestCountries = () => {
             ]}
           />
         </div>
-        <CountryInfo country={countries[0]} />
-        {/*<CountriesBlock*/}
-        {/*  countries={countries}*/}
-        {/*  countrySearch={countrySearch}*/}
-        {/*  region={region}*/}
-        {/*/>*/}
+        <Routes>
+          <Route
+            path={"/"}
+            element={
+              <CountriesBlock
+                countries={countries}
+                countrySearch={countrySearch}
+                region={region}
+              />
+            }
+          />
+          <Route path={"/:name"} element={<CountryInfo />} />
+        </Routes>
       </div>
     </div>
   );
