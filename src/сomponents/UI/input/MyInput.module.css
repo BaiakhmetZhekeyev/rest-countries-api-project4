@@ -6,7 +6,7 @@
 
 .searchCountryInput {
     width: 400px;
-    padding: 5px 20px;
+    padding: 10px 20px;
     border-radius: 8px;
     background: white;
     outline: none;
@@ -26,6 +26,6 @@
 
 .searchIcon {
     position: relative;
-    right: 20px;
+    right: 30px;
 }
 

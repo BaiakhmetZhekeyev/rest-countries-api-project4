@@ -4,6 +4,7 @@
     grid-template-rows: 500px;
     column-gap: 100px;
     margin-top: 30px;
+    height: 80vh;
 }
 
 .infoBody img {
@@ -13,7 +14,7 @@
 }
 
 .infoContainer {
-
+    margin: 30px;
 }
 
 .informationBlock {
@@ -35,6 +36,19 @@
     column-gap: 40px;
 }
 
-.borderCountries {
+.borders {
+    width: 500px;
+}
+
+
+.borders p{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.borders a {
+    text-decoration: none;
 
 }

@@ -1,8 +1,6 @@
 import React from "react";
 import style from "../styles/restCountries.module.css";
 import axios from "axios";
-import MySelect from "./UI/select/MySelect";
-import MyInput from "./UI/input/MyInput";
 import CountriesBlock from "./CountriesBlock";
 import MyButton from "./UI/button/MyButton";
 import darkMode from "../img/dark_mode_icon.svg";
@@ -10,9 +8,8 @@ import { Link, Routes, Route } from "react-router-dom";
 import CountryInfo from "./CountryInfo";
 
 const RestCountries = () => {
-  const [region, setRegion] = React.useState("");
   const [countries, setCountries] = React.useState([]);
-  const [countrySearch, setCountrySearch] = React.useState("");
+  const borders = {};
 
   React.useEffect(() => {
     axios({
@@ -24,6 +21,10 @@ const RestCountries = () => {
     });
   }, []);
 
+  countries.map((obj) => {
+    borders[obj.cca3] = obj.name.common;
+  });
+
   return (
     <div className={style.rootCountries}>
       <div className={style.countriesHeaderWrapper}>
@@ -31,32 +32,15 @@ const RestCountries = () => {
         <MyButton value={"Dark Mode"} icon={darkMode} />
       </div>
       <div className={style.bodyWrapper}>
-        <div className={style.filterWrapper}>
-          <MyInput setSearchInput={setCountrySearch} />
-          <MySelect
-            setOption={setRegion}
-            defaulValue="Filter by Region"
-            options={[
-              { label: "Africa", value: "Africa" },
-              { label: "America", value: "Americas" },
-              { label: "Asia", value: "Asia" },
-              { label: "Europe", value: "Europe" },
-              { label: "Oceania", value: "Oceania" },
-            ]}
-          />
-        </div>
         <Routes>
           <Route
             path={"/"}
-            element={
-              <CountriesBlock
-                countries={countries}
-                countrySearch={countrySearch}
-                region={region}
-              />
-            }
+            element={<CountriesBlock countries={countries} />}
           />
-          <Route path={"/:name"} element={<CountryInfo />} />
+          <Route
+            path={"/:name"}
+            element={<CountryInfo bordersCollection={borders} />}
+          />
         </Routes>
       </div>
     </div>
