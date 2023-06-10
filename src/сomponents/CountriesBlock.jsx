@@ -31,18 +31,24 @@ const CountriesBlock = ({ countries }) => {
               .toLowerCase()
               .includes(countrySearch.toLowerCase())
           )
-          .map((obj, index) => (
+          .map((obj) => (
             <Link
               to={`/${obj.name.common}`}
               className={style.countryBlock}
-              key={index}
+              key={obj.cca3}
             >
               <img src={obj.flags.svg} alt={obj.flag} />
               <div className={style.countryInfo}>
-                <h5>{obj.name.common}</h5>
-                <p>Population: {obj.population}</p>
-                <p>Region: {obj.region}</p>
-                <p>Capital: {obj.capital}</p>
+                <h3>{obj.name.common}</h3>
+                <h4>
+                  Population: <span>{obj.population}</span>
+                </h4>
+                <h4>
+                  Region: <span>{obj.region}</span>
+                </h4>
+                <h4>
+                  Capital: <span>{obj.capital}</span>
+                </h4>
               </div>
             </Link>
           ))}

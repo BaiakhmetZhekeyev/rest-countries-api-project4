@@ -1,7 +1,7 @@
 .infoBody {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 500px;
+    grid-template-rows: 400px;
     column-gap: 100px;
     margin-top: 30px;
     height: 80vh;
@@ -14,7 +14,7 @@
 }
 
 .infoContainer {
-    margin: 30px;
+    margin-top: 30px;
 }
 
 .informationBlock {
@@ -24,20 +24,16 @@
 
 }
 
-.countryName{
-
-}
-
 .aboutCountry{
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     height: 280px;
-    column-gap: 40px;
+    column-gap: 20px;
 }
 
 .borders {
-    width: 500px;
+    width: 100%;
 }
 
 
@@ -51,4 +47,24 @@
 .borders a {
     text-decoration: none;
 
+}
+
+@media (max-width: 1250px) {
+    .infoBody {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 300px;
+
+    }
+
+    .infoContainer {
+        margin: 15px;
+    }
+
+    .aboutCountry{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        height: 200px;
+        column-gap: 20px;
+    }
 }

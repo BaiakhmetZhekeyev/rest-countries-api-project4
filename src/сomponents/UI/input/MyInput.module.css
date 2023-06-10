@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+
 .searchBlock {
     display: flex;
     align-items: center;
@@ -11,8 +13,8 @@
     background: white;
     outline: none;
     border: 1px solid #D5D6D9;
-    font-family: Arial;
     font-size: 15px;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 .searchCountryInput:hover {
