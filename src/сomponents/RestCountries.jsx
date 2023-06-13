@@ -2,10 +2,9 @@ import React from "react";
 import style from "../styles/restCountries.module.css";
 import axios from "axios";
 import CountriesBlock from "./CountriesBlock";
-import MyButton from "./UI/button/MyButton";
-import darkMode from "../img/dark_mode_icon.svg";
 import { Link, Routes, Route } from "react-router-dom";
 import CountryInfo from "./CountryInfo";
+import Header from "./Header";
 
 const RestCountries = () => {
   const [countries, setCountries] = React.useState([]);
@@ -27,10 +26,11 @@ const RestCountries = () => {
 
   return (
     <div className={style.rootCountries}>
-      <div className={style.countriesHeaderWrapper}>
-        <Link to={"/"}>Where in the world?</Link>
-        <MyButton value={"Dark Mode"} icon={darkMode} />
-      </div>
+      {/*<div className={style.countriesHeaderWrapper}>*/}
+      {/*  <Link to={"/"}>Where in the world?</Link>*/}
+      {/*  <MyButton value={"Dark Mode"} icon={darkMode} />*/}
+      {/*</div>*/}
+      <Header />
       <div className={style.bodyWrapper}>
         <Routes>
           <Route
