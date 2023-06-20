@@ -1,49 +1,61 @@
 import React from "react";
-import style from "../styles/restCountries.module.css";
 import axios from "axios";
-import CountriesBlock from "./CountriesBlock";
-import { Link, Routes, Route } from "react-router-dom";
-import CountryInfo from "./CountryInfo";
-import Header from "./Header";
+import Filter from "./Filter";
+import { ALL_COUNTRIES } from "../config";
+import Card from "../Card";
+import List from "./List";
+import { useNavigate } from "react-router-dom";
 
-const RestCountries = () => {
-  const [countries, setCountries] = React.useState([]);
-  const borders = {};
+const RestCountries = ({ countries, setCountries }) => {
+  const [filteredCountries, setFilteredCountries] = React.useState(countries);
+  const navigate = useNavigate();
+  const handleSearch = (search, region) => {
+    let data = [...countries];
+    if (region) {
+      data = data.filter((country) => country.region == region);
+    }
+    if (search) {
+      data = data.filter((country) =>
+        country.name.common.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+    setFilteredCountries(data);
+  };
 
   React.useEffect(() => {
-    axios({
-      method: "get",
-      url: "https://restcountries.com/v3.1/all",
-    }).then((json) => {
-      console.log(json.data);
-      setCountries(json.data);
-    });
+    if (!countries.length) {
+      axios({
+        method: "get",
+        url: ALL_COUNTRIES,
+      }).then((json) => {
+        setCountries(json.data);
+        setFilteredCountries(json.data);
+      });
+    }
   }, []);
 
-  countries.map((obj) => {
-    borders[obj.cca3] = obj.name.common;
-  });
-
   return (
-    <div className={style.rootCountries}>
-      {/*<div className={style.countriesHeaderWrapper}>*/}
-      {/*  <Link to={"/"}>Where in the world?</Link>*/}
-      {/*  <MyButton value={"Dark Mode"} icon={darkMode} />*/}
-      {/*</div>*/}
-      <Header />
-      <div className={style.bodyWrapper}>
-        <Routes>
-          <Route
-            path={"/"}
-            element={<CountriesBlock countries={countries} />}
-          />
-          <Route
-            path={"/:name"}
-            element={<CountryInfo bordersCollection={borders} />}
-          />
-        </Routes>
-      </div>
-    </div>
+    <>
+      <Filter onSearch={handleSearch} />
+      <List>
+        {filteredCountries.map((country) => {
+          const countryDetails = {
+            img: country.flags.png,
+            name: country.name.common,
+            population: country.population,
+            region: country.region,
+            capital: country.capital[0],
+          };
+          return (
+            <Card
+              key={country.name.common}
+              {...countryDetails}
+              onClick={() => navigate(`/country/${country.name.common}`)}
+            />
+          );
+        })}
+      </List>
+    </>
   );
 };
 

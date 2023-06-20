@@ -16,8 +16,8 @@ const Wrapper = styled.div`
   padding: 2rem 0;
 `;
 
-const Title = styled.a.attrs({
-  href: "/",
+const Title = styled(Link).attrs({
+  to: "/",
 })`
   color: var(--colors-text);
   font-size: var(--fs-sm);

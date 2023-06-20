@@ -23,9 +23,14 @@ const Wrapper = styled.div`
   }
 `;
 
-const Filter = () => {
+const Filter = ({ onSearch }) => {
   const [search, setSearch] = React.useState("");
   const [region, setRegion] = React.useState("");
+
+  React.useEffect(() => {
+    const regionValue = region?.value || "";
+    onSearch(search, regionValue);
+  }, [search, region]);
 
   return (
     <Wrapper>
